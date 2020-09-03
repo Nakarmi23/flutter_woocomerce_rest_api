@@ -114,7 +114,7 @@ WooProduct _$WooProductFromJson(Map<String, dynamic> json) {
             : WooProductMetaData.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   )
-    ..type = _$enumDecodeNullable(_$WooProductTyeEnumMap, json['type'])
+    ..type = _$enumDecodeNullable(_$WooProductTypeEnumMap, json['type'])
     ..status =
         _$enumDecodeNullable(_$WooProductStatusTypeEnumMap, json['status'])
     ..catalogVisibility = _$enumDecodeNullable(
@@ -137,7 +137,7 @@ Map<String, dynamic> _$WooProductToJson(WooProduct instance) =>
       'date_created_gmt': instance.dateCreatedGMT?.toIso8601String(),
       'date_modified': instance.dateModified?.toIso8601String(),
       'date_modified_gmt': instance.dateModifiedGMT?.toIso8601String(),
-      'type': _$WooProductTyeEnumMap[instance.type],
+      'type': _$WooProductTypeEnumMap[instance.type],
       'status': _$WooProductStatusTypeEnumMap[instance.status],
       'featured': instance.featured,
       'catalog_visibility':
@@ -234,11 +234,11 @@ const _$WooProductStockStatusEnumMap = {
   WooProductStockStatus.onbackorder: 'onbackorder',
 };
 
-const _$WooProductTyeEnumMap = {
-  WooProductTye.simple: 'simple',
-  WooProductTye.grouped: 'grouped',
-  WooProductTye.external: 'external',
-  WooProductTye.variable: 'variable',
+const _$WooProductTypeEnumMap = {
+  WooProductType.simple: 'simple',
+  WooProductType.grouped: 'grouped',
+  WooProductType.external: 'external',
+  WooProductType.variable: 'variable',
 };
 
 const _$WooProductStatusTypeEnumMap = {

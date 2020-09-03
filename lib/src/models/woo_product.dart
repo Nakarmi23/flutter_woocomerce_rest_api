@@ -17,7 +17,7 @@ class WooProduct {
   DateTime dateModified;
   @JsonKey(name: 'date_modified_gmt')
   DateTime dateModifiedGMT;
-  WooProductTye type;
+  WooProductType type;
   WooProductStatusType status;
   bool featured;
   @JsonKey(name: 'catalog_visibility')
@@ -432,7 +432,7 @@ class WooProduct {
   }
 }
 
-enum WooProductTye {
+enum WooProductType {
   simple,
   grouped,
   external,
