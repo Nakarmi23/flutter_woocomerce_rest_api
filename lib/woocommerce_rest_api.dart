@@ -9,6 +9,7 @@ import 'package:crypto/crypto.dart' as crypto;
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
 import 'package:woocommerce_rest_api/src/models/woo_product.dart';
+import 'package:woocommerce_rest_api/src/models/woo_product_param.dart';
 
 import 'src/utility/queryString.dart';
 import 'src/models/woocommerce_rest_api_error.dart';

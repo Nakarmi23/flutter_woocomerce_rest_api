@@ -10,4 +10,27 @@ class _WooProductRepo {
         .baseGet('products/${id}')
         .then((value) => WooProduct.fromJson(value));
   }
+
+  Future<List<WooProduct>> getProducts(WooProductParam param) {
+    return instance.baseGet('products/').then((value) =>
+        value.map((product) => WooProduct.fromJson(product)).toList());
+  }
+
+  Future<WooProduct> createProduct(WooProduct data) {
+    return instance
+        .basePost('products/', data.toJson())
+        .then((value) => WooProduct.fromJson(value));
+  }
+
+  Future<WooProduct> updateProduct(int id, WooProduct data) {
+    return instance
+        .basePut('products/$id', data.toJson())
+        .then((value) => WooProduct.fromJson(value));
+  }
+
+  Future<WooProduct> deleteProductById(int id) {
+    return instance
+        .baseDelete('products/${id}')
+        .then((value) => WooProduct.fromJson(value));
+  }
 }
