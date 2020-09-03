@@ -8,8 +8,12 @@ import 'dart:math';
 import 'package:crypto/crypto.dart' as crypto;
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
-import 'package:woocommerce_rest_api/models/woocommerce_rest_api_error.dart';
-import 'package:woocommerce_rest_api/utility/queryString.dart';
+import 'package:woocommerce_rest_api/src/models/woo_product.dart';
+
+import 'src/utility/queryString.dart';
+import 'src/models/woocommerce_rest_api_error.dart';
+
+part 'src/product.dart';
 
 class WooCommerceRestAPI {
   String url;
@@ -17,6 +21,10 @@ class WooCommerceRestAPI {
   String consumerSecret;
   String version;
   bool isHttps;
+
+  _WooProductRepo get product {
+    return _WooProductRepo(this);
+  }
 
   WooCommerceRestAPI(
       {@required this.url,

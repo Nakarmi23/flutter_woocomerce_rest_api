@@ -61,7 +61,8 @@ WooProduct _$WooProductFromJson(Map<String, dynamic> json) {
     taxClass: json['tax_class'] as String,
     manageStock: json['manage_stock'] as bool,
     stockQuantity: json['stock_quantity'] as int,
-    stockStatus: json['stock_status'] as int,
+    stockStatus: _$enumDecodeNullable(
+        _$WooProductStockStatusEnumMap, json['stock_status']),
     backOrders: json['backorders'] as String,
     backOrdersAllowed: json['backorders_allowed'] as bool,
     backOrdered: json['backordered'] as bool,
@@ -166,7 +167,7 @@ Map<String, dynamic> _$WooProductToJson(WooProduct instance) =>
       'tax_class': instance.taxClass,
       'manage_stock': instance.manageStock,
       'stock_quantity': instance.stockQuantity,
-      'stock_status': instance.stockStatus,
+      'stock_status': _$WooProductStockStatusEnumMap[instance.stockStatus],
       'backorders': instance.backOrders,
       'backorders_allowed': instance.backOrdersAllowed,
       'backordered': instance.backOrdered,
@@ -227,6 +228,12 @@ T _$enumDecodeNullable<T>(
   return _$enumDecode<T>(enumValues, source, unknownValue: unknownValue);
 }
 
+const _$WooProductStockStatusEnumMap = {
+  WooProductStockStatus.instock: 'instock',
+  WooProductStockStatus.outofstock: 'outofstock',
+  WooProductStockStatus.onbackorder: 'onbackorder',
+};
+
 const _$WooProductTyeEnumMap = {
   WooProductTye.simple: 'simple',
   WooProductTye.grouped: 'grouped',
@@ -286,7 +293,7 @@ Map<String, dynamic> _$WooProductDimensionsToJson(
 
 WooProductCategory _$WooProductCategoryFromJson(Map<String, dynamic> json) {
   return WooProductCategory(
-    id: json['id'] as String,
+    id: json['id'] as int,
     name: json['name'] as String,
     slug: json['slug'] as String,
   );
@@ -301,7 +308,7 @@ Map<String, dynamic> _$WooProductCategoryToJson(WooProductCategory instance) =>
 
 WooProductTag _$WooProductTagFromJson(Map<String, dynamic> json) {
   return WooProductTag(
-    id: json['id'] as String,
+    id: json['id'] as int,
     name: json['name'] as String,
     slug: json['slug'] as String,
   );
@@ -316,7 +323,7 @@ Map<String, dynamic> _$WooProductTagToJson(WooProductTag instance) =>
 
 WooProductImage _$WooProductImageFromJson(Map<String, dynamic> json) {
   return WooProductImage(
-    id: json['id'] as String,
+    id: json['id'] as int,
     dateCreated: json['date_created'] == null
         ? null
         : DateTime.parse(json['date_created'] as String),
@@ -349,7 +356,7 @@ Map<String, dynamic> _$WooProductImageToJson(WooProductImage instance) =>
 
 WooProductAttribute _$WooProductAttributeFromJson(Map<String, dynamic> json) {
   return WooProductAttribute(
-    id: json['id'] as String,
+    id: json['id'] as int,
     name: json['name'] as String,
     position: json['position'] as String,
     visible: json['visible'] as String,
@@ -372,7 +379,7 @@ Map<String, dynamic> _$WooProductAttributeToJson(
 WooProductDefaultAttribute _$WooProductDefaultAttributeFromJson(
     Map<String, dynamic> json) {
   return WooProductDefaultAttribute(
-    id: json['id'] as String,
+    id: json['id'] as int,
     name: json['name'] as String,
     options: json['options'] as String,
   );
@@ -388,7 +395,7 @@ Map<String, dynamic> _$WooProductDefaultAttributeToJson(
 
 WooProductMetaData _$WooProductMetaDataFromJson(Map<String, dynamic> json) {
   return WooProductMetaData(
-    id: json['id'] as String,
+    id: json['id'] as int,
     key: json['key'] as String,
     value: json['value'] as String,
   );

@@ -66,7 +66,7 @@ class WooProduct {
   @JsonKey(name: 'stock_quantity')
   int stockQuantity;
   @JsonKey(name: 'stock_status')
-  int stockStatus;
+  WooProductStockStatus stockStatus;
   @JsonKey(name: 'backorders')
   String backOrders;
   @JsonKey(name: 'backorders_allowed')
@@ -446,6 +446,8 @@ enum WooProductStatusType {
   publish,
 }
 
+enum WooProductStockStatus { instock, outofstock, onbackorder }
+
 enum WooProductCatalogVisibility {
   visible,
   catalog,
@@ -483,7 +485,7 @@ class WooProductDimensions {
 
 @JsonSerializable()
 class WooProductCategory {
-  String id;
+  int id;
   String name;
   String slug;
   WooProductCategory({this.id, this.name, this.slug});
@@ -495,7 +497,7 @@ class WooProductCategory {
 
 @JsonSerializable()
 class WooProductTag {
-  String id;
+  int id;
   String name;
   String slug;
   WooProductTag({this.id, this.name, this.slug});
@@ -507,7 +509,7 @@ class WooProductTag {
 
 @JsonSerializable()
 class WooProductImage {
-  String id;
+  int id;
   @JsonKey(name: 'date_created')
   DateTime dateCreated;
   @JsonKey(name: 'date_created_gmt')
@@ -537,7 +539,7 @@ class WooProductImage {
 
 @JsonSerializable()
 class WooProductAttribute {
-  String id;
+  int id;
   String name;
   String position;
   String visible;
@@ -559,7 +561,7 @@ class WooProductAttribute {
 
 @JsonSerializable()
 class WooProductDefaultAttribute {
-  String id;
+  int id;
   String name;
   String options;
   WooProductDefaultAttribute({
@@ -575,7 +577,7 @@ class WooProductDefaultAttribute {
 
 @JsonSerializable()
 class WooProductMetaData {
-  String id;
+  int id;
   String key;
   String value;
   WooProductMetaData({
