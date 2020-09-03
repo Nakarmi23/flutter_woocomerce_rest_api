@@ -9,27 +9,7 @@ import 'package:crypto/crypto.dart' as crypto;
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
 import 'package:woocommerce_rest_api/models/woocommerce_rest_api_error.dart';
-
-class QueryString {
-  /// Parses the given query string into a Map.
-  static Map parse(String query) {
-    RegExp search = RegExp('([^&=]+)=?([^&]*)');
-    Map result = Map();
-
-    // Get rid off the beginning ? in query strings.
-    if (query.startsWith('?')) query = query.substring(1);
-
-    // A custom decoder.
-    decode(String s) => Uri.decodeComponent(s.replaceAll('+', ' '));
-
-    // Go through all the matches and build the result map.
-    for (Match match in search.allMatches(query)) {
-      result[decode(match.group(1))] = decode(match.group(2));
-    }
-
-    return result;
-  }
-}
+import 'package:woocommerce_rest_api/utility/queryString.dart';
 
 class WooCommerceRestAPI {
   String url;
@@ -171,7 +151,7 @@ class WooCommerceRestAPI {
     }
   }
 
-  Future<dynamic> getAsync(String endPoint,
+  Future<dynamic> baseGet(String endPoint,
       {Map<String, dynamic> params: const {}}) async {
     String paramEndPoint = endPoint;
 
@@ -197,7 +177,7 @@ class WooCommerceRestAPI {
     }
   }
 
-  Future<dynamic> postAsync(String endPoint, Map<String, dynamic> data) async {
+  Future<dynamic> basePost(String endPoint, Map<String, dynamic> data) async {
     String url = this._getOAuthURL("POST", endPoint);
     http.Client client = http.Client();
     http.Request request = http.Request('POST', Uri.parse(url));
@@ -211,7 +191,7 @@ class WooCommerceRestAPI {
     return dataResponse;
   }
 
-  Future<dynamic> putAsync(String endPoint, Map<String, dynamic> data) async {
+  Future<dynamic> basePut(String endPoint, Map<String, dynamic> data) async {
     String url = this._getOAuthURL("PUT", endPoint);
     http.Client client = http.Client();
     http.Request request = http.Request('PUT', Uri.parse(url));
@@ -225,10 +205,10 @@ class WooCommerceRestAPI {
     return dataResponse;
   }
 
-  Future<dynamic> deleteAsync(String endPoint, {bool force = true}) async {
-    String paramEndPoint = endPoint;
+  Future<dynamic> baseDelete(String endPoint, {bool force = true}) async {
+    String paramEndPoint = endPoint + '?force=$force';
 
-    String url = this._getOAuthURL("DELETE", paramEndPoint + '?force=$force');
+    String url = this._getOAuthURL("DELETE", paramEndPoint);
     try {
       final http.Response response = await http.delete(url);
       if (response.statusCode == 200) {
