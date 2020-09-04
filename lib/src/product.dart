@@ -11,9 +11,10 @@ class _WooProductRepo {
         .then((value) => WooProduct.fromJson(value));
   }
 
-  Future<List<WooProduct>> getProducts(WooProductParam param) {
-    return instance.baseGet('products/').then((value) =>
-        value.map((product) => WooProduct.fromJson(product)).toList());
+  Future<List<WooProduct>> getProducts({WooProductParam param}) async {
+    return await instance.baseGet('products/').then((value) => (value as List)
+        .map<WooProduct>((product) => WooProduct.fromJson(product))
+        .toList());
   }
 
   Future<WooProduct> createProduct(WooProduct data) {
