@@ -8,16 +8,16 @@ part of 'woo_product_param.dart';
 
 WooProductParam _$WooProductParamFromJson(Map<String, dynamic> json) {
   return WooProductParam(
-    context: json['context'] as String,
-    page: json['page'] as int,
-    perPage: json['per_page'] as int,
-    search: json['search'] as String,
     after: json['after'] as String,
     before: json['before'] as String,
+    context: json['context'] as String,
     exclude: (json['exclude'] as List)?.map((e) => e as int)?.toList(),
     include: (json['include'] as List)?.map((e) => e as int)?.toList(),
     offset: json['offset'] as int,
     order: _$enumDecodeNullable(_$WooParamOrderEnumMap, json['order']),
+    page: json['page'] as int,
+    perPage: json['per_page'] as int,
+    search: json['search'] as String,
     parent: (json['parent'] as List)?.map((e) => e as int)?.toList(),
     parentExclude:
         (json['parent_exclude'] as List)?.map((e) => e as int)?.toList(),
@@ -32,15 +32,15 @@ WooProductParam _$WooProductParamFromJson(Map<String, dynamic> json) {
     shippingClass: json['shipping_class'] as String,
     attribute: json['attribute'] as String,
     attribute_term: json['attribute_term'] as String,
+    taxClass: json['tax_class'] as String,
     onSale: json['on_sale'] as bool,
     minPrice: json['min_price'] as String,
     maxPrice: json['max_price'] as String,
     stockStatus: _$enumDecodeNullable(
         _$WooProductStockStatusEnumMap, json['stock_status']),
-  )
-    ..orderBy =
-        _$enumDecodeNullable(_$WooProductParamOrderByEnumMap, json['orderby'])
-    ..taxClass = json['tax_class'] as String;
+    orderBy:
+        _$enumDecodeNullable(_$WooProductParamOrderByEnumMap, json['order_by']),
+  );
 }
 
 Map<String, dynamic> _$WooProductParamToJson(WooProductParam instance) {
@@ -52,17 +52,17 @@ Map<String, dynamic> _$WooProductParamToJson(WooProductParam instance) {
     }
   }
 
-  writeNotNull('context', instance.context);
-  writeNotNull('page', instance.page);
-  writeNotNull('per_page', instance.perPage);
-  writeNotNull('search', instance.search);
   writeNotNull('after', instance.after);
   writeNotNull('before', instance.before);
+  writeNotNull('context', instance.context);
   writeNotNull('exclude', instance.exclude);
   writeNotNull('include', instance.include);
   writeNotNull('offset', instance.offset);
   writeNotNull('order', _$WooParamOrderEnumMap[instance.order]);
-  writeNotNull('orderby', _$WooProductParamOrderByEnumMap[instance.orderBy]);
+  writeNotNull('order_by', _$WooProductParamOrderByEnumMap[instance.orderBy]);
+  writeNotNull('page', instance.page);
+  writeNotNull('per_page', instance.perPage);
+  writeNotNull('search', instance.search);
   writeNotNull('parent', instance.parent);
   writeNotNull('parent_exclude', instance.parentExclude);
   writeNotNull('slug', instance.slug);
