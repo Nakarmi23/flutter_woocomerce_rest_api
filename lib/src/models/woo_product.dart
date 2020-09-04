@@ -579,7 +579,7 @@ class WooProductDefaultAttribute {
 class WooProductMetaData {
   int id;
   String key;
-  String value;
+  dynamic value;
   WooProductMetaData({
     this.id,
     this.key,

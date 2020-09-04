@@ -397,7 +397,7 @@ WooProductMetaData _$WooProductMetaDataFromJson(Map<String, dynamic> json) {
   return WooProductMetaData(
     id: json['id'] as int,
     key: json['key'] as String,
-    value: json['value'] as String,
+    value: json['value'],
   );
 }
 
