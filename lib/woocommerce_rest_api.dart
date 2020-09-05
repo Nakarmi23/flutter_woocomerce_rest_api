@@ -34,6 +34,10 @@ class WooCommerceRestAPI {
     return _WooProductRepo(this);
   }
 
+  _WooCategoryRepo get category {
+    return _WooCategoryRepo(this);
+  }
+
   WooCommerceRestAPI(
       {@required this.url,
       @required this.consumerKey,
