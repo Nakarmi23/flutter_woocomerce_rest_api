@@ -17,6 +17,8 @@ import 'src/models/woocommerce_rest_api_error.dart';
 
 export 'package:woocommerce_rest_api/src/models/woo_category.dart';
 export 'package:woocommerce_rest_api/src/models/woo_product.dart';
+export 'package:woocommerce_rest_api/src/param_models/woo_product_param.dart';
+export 'package:woocommerce_rest_api/src/param_models/woo_category_param.dart';
 
 part 'src/product.dart';
 part 'src/category.dart';
