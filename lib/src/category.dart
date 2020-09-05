@@ -13,7 +13,10 @@ class _WooCategoryRepo {
 
   Future<List<WooProductCategory>> getProducts(WooCategoryParam param) {
     return instance.baseGet('products/categories').then((value) =>
-        value.map((product) => WooProductCategory.fromJson(product)).toList());
+        (value as List)
+            .map<WooProductCategory>(
+                (product) => WooProductCategory.fromJson(product))
+            .toList());
   }
 
   Future<WooProductCategory> createProduct(WooProductCategory data) {
