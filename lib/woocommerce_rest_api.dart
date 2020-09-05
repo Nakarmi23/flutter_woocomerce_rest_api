@@ -175,10 +175,10 @@ class WooCommerceRestAPI {
     if (containsQueryParams)
       paramEndPoint += '&';
     else
-      paramEndPoint != '?';
+      paramEndPoint += '?';
 
     for (String key in params.keys) {
-      paramEndPoint += '$key=${params[key]}';
+      paramEndPoint += '$key=${params[key]}&';
     }
 
     String url = this._getOAuthURL("GET", paramEndPoint);

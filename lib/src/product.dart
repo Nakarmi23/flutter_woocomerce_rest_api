@@ -13,7 +13,7 @@ class _WooProductRepo {
 
   Future<List<WooProduct>> getProducts({WooProductParam params}) async {
     return await instance
-        .baseGet('products/', params: params != null ? params.toJson() : {})
+        .baseGet('products', params: params != null ? params.toJson() : {})
         .then((value) => (value as List)
             .map<WooProduct>((product) => WooProduct.fromJson(product))
             .toList());
