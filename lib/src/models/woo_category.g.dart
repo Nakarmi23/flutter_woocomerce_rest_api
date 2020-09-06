@@ -16,9 +16,10 @@ WooCategory _$WooCategoryFromJson(Map<String, dynamic> json) {
     display: json['display'] as String,
     menuOrder: json['menu_order'] as int,
     count: json['count'] as int,
-  )..image = json['image'] == null
-      ? null
-      : WooCategoryImage.fromJson(json['image'] as Map<String, dynamic>);
+    image: json['image'] == null
+        ? null
+        : WooCategoryImage.fromJson(json['image'] as Map<String, dynamic>),
+  );
 }
 
 Map<String, dynamic> _$WooCategoryToJson(WooCategory instance) =>
@@ -36,7 +37,7 @@ Map<String, dynamic> _$WooCategoryToJson(WooCategory instance) =>
 
 WooCategoryImage _$WooCategoryImageFromJson(Map<String, dynamic> json) {
   return WooCategoryImage(
-    id: json['id'] as String,
+    id: json['id'] as int,
     dateCreated: json['date_created'] == null
         ? null
         : DateTime.parse(json['date_created'] as String),

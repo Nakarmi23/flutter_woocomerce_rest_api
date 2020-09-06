@@ -23,6 +23,7 @@ class WooCategory {
     this.display,
     this.menuOrder,
     this.count,
+    this.image,
   });
 
   WooCategory copyWith({
@@ -73,11 +74,16 @@ class WooCategory {
         menuOrder.hashCode ^
         count.hashCode;
   }
+
+  factory WooCategory.fromJson(Map<String, dynamic> json) =>
+      _$WooCategoryFromJson(json);
+
+  Map<String, dynamic> toJson() => _$WooCategoryToJson(this);
 }
 
 @JsonSerializable()
 class WooCategoryImage {
-  String id;
+  int id;
   @JsonKey(name: 'date_created')
   DateTime dateCreated;
   @JsonKey(name: 'date_created_gmt')
