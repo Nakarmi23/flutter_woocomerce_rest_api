@@ -6,7 +6,7 @@ import 'package:woocommerce_rest_api/src/param_models/woo_base_param.dart';
 part 'woo_product_param.g.dart';
 
 @JsonSerializable(includeIfNull: false)
-class WooProductParam implements WooBaseParam {
+class WooProductParam implements WooBaseParam<WooProductParamOrderBy> {
   @override
   String after;
   @override
@@ -90,3 +90,5 @@ class WooProductParam implements WooBaseParam {
 
   Map<String, dynamic> toJson() => _$WooProductParamToJson(this);
 }
+
+enum WooProductParamOrderBy { date, id, include, title, slug }

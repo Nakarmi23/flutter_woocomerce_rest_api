@@ -5,7 +5,7 @@ import 'package:woocommerce_rest_api/src/param_models/woo_base_param.dart';
 part 'woo_category_param.g.dart';
 
 @JsonSerializable(includeIfNull: false)
-class WooCategoryParam implements WooBaseParam {
+class WooCategoryParam implements WooBaseParam<WooCategoryParamOrderBy> {
   @override
   String after;
   @override
@@ -22,7 +22,7 @@ class WooCategoryParam implements WooBaseParam {
   WooParamOrder order;
   @JsonKey(name: 'order_by')
   @override
-  WooProductParamOrderBy orderBy;
+  WooCategoryParamOrderBy orderBy;
   @override
   int page;
   @JsonKey(name: 'per_page')
@@ -57,4 +57,13 @@ class WooCategoryParam implements WooBaseParam {
       _$WooCategoryParamFromJson(json);
 
   Map<String, dynamic> toJson() => _$WooCategoryParamToJson(this);
+}
+
+enum WooCategoryParamOrderBy {
+  include,
+  name,
+  slug,
+  term_group,
+  description,
+  count
 }

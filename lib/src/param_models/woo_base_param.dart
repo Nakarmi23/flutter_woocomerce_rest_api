@@ -1,7 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-@JsonSerializable()
-abstract class WooBaseParam {
+abstract class WooBaseParam<OB> {
   String context;
   int page;
   int perPage;
@@ -12,8 +11,7 @@ abstract class WooBaseParam {
   List<int> include;
   int offset;
   WooParamOrder order;
-  WooProductParamOrderBy orderBy;
+  OB orderBy;
 }
 
 enum WooParamOrder { asc, desc }
-enum WooProductParamOrderBy { date, id, include, title, slug }

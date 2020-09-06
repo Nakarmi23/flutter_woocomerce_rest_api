@@ -15,8 +15,8 @@ WooCategoryParam _$WooCategoryParamFromJson(Map<String, dynamic> json) {
     include: (json['include'] as List)?.map((e) => e as int)?.toList(),
     offset: json['offset'] as int,
     order: _$enumDecodeNullable(_$WooParamOrderEnumMap, json['order']),
-    orderBy:
-        _$enumDecodeNullable(_$WooProductParamOrderByEnumMap, json['order_by']),
+    orderBy: _$enumDecodeNullable(
+        _$WooCategoryParamOrderByEnumMap, json['order_by']),
     page: json['page'] as int,
     perPage: json['per_page'] as int,
     search: json['search'] as String,
@@ -43,7 +43,7 @@ Map<String, dynamic> _$WooCategoryParamToJson(WooCategoryParam instance) {
   writeNotNull('include', instance.include);
   writeNotNull('offset', instance.offset);
   writeNotNull('order', _$WooParamOrderEnumMap[instance.order]);
-  writeNotNull('order_by', _$WooProductParamOrderByEnumMap[instance.orderBy]);
+  writeNotNull('order_by', _$WooCategoryParamOrderByEnumMap[instance.orderBy]);
   writeNotNull('page', instance.page);
   writeNotNull('per_page', instance.perPage);
   writeNotNull('search', instance.search);
@@ -91,10 +91,11 @@ const _$WooParamOrderEnumMap = {
   WooParamOrder.desc: 'desc',
 };
 
-const _$WooProductParamOrderByEnumMap = {
-  WooProductParamOrderBy.date: 'date',
-  WooProductParamOrderBy.id: 'id',
-  WooProductParamOrderBy.include: 'include',
-  WooProductParamOrderBy.title: 'title',
-  WooProductParamOrderBy.slug: 'slug',
+const _$WooCategoryParamOrderByEnumMap = {
+  WooCategoryParamOrderBy.include: 'include',
+  WooCategoryParamOrderBy.name: 'name',
+  WooCategoryParamOrderBy.slug: 'slug',
+  WooCategoryParamOrderBy.term_group: 'term_group',
+  WooCategoryParamOrderBy.description: 'description',
+  WooCategoryParamOrderBy.count: 'count',
 };
