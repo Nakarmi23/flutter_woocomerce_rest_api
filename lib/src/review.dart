@@ -5,13 +5,13 @@ class _WooReviewRepo {
 
   _WooReviewRepo(this.instance);
 
-  Future<WooReview> getProductById(int id) {
+  Future<WooReview> getReviewById(int id) {
     return instance
         .baseGet('products/reviews/${id}')
         .then((value) => WooReview.fromJson(value));
   }
 
-  Future<List<WooReview>> getProducts({WooReviewParam params}) async {
+  Future<List<WooReview>> getReviews({WooReviewParam params}) async {
     return await instance
         .baseGet('products/reviews',
             params: params != null ? params.toJson() : {})
@@ -20,19 +20,19 @@ class _WooReviewRepo {
             .toList());
   }
 
-  Future<WooReview> createProduct(WooReview data) {
+  Future<WooReview> createReview(WooReview data) {
     return instance
         .basePost('products/reviews', data.toJson())
         .then((value) => WooReview.fromJson(value));
   }
 
-  Future<WooReview> updateProduct(int id, WooReview data) {
+  Future<WooReview> updateReview(int id, WooReview data) {
     return instance
         .basePut('products/reviews/$id', data.toJson())
         .then((value) => WooReview.fromJson(value));
   }
 
-  Future<WooReview> deleteProductById(int id) {
+  Future<WooReview> deleteReviewById(int id) {
     return instance
         .baseDelete('products/reviews/${id}')
         .then((value) => WooReview.fromJson(value));
