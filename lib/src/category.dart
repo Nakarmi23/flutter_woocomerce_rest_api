@@ -5,35 +5,39 @@ class _WooCategoryRepo {
 
   _WooCategoryRepo(this.instance);
 
-  Future<WooProductCategory> getProductById(int id) {
+  Future<WooCategory> getCategoryById(int id) {
     return instance
         .baseGet('products/categories/${id}')
-        .then((value) => WooProductCategory.fromJson(value));
+        .then((value) => WooCategory.fromJson(value));
   }
 
-  Future<List<WooProductCategory>> getProducts(WooCategoryParam param) {
-    return instance.baseGet('products/categories').then((value) =>
-        (value as List)
-            .map<WooProductCategory>(
-                (product) => WooProductCategory.fromJson(product))
-            .toList());
+  Future<List<WooCategory>> getCategories(WooCategoryParam params) {
+    return instance
+        .baseGet('products/categories',
+            params: params != null ? params.toJson() : {})
+        .then((value) {
+      List<WooCategory> category = (value as List).map<WooCategory>((category) {
+        return WooCategory.fromJson(category);
+      }).toList();
+      return category;
+    });
   }
 
-  Future<WooProductCategory> createProduct(WooProductCategory data) {
+  Future<WooCategory> createCategory(WooCategory data) {
     return instance
         .basePost('products/categories', data.toJson())
-        .then((value) => WooProductCategory.fromJson(value));
+        .then((value) => WooCategory.fromJson(value));
   }
 
-  Future<WooProductCategory> updateProduct(int id, WooProductCategory data) {
+  Future<WooCategory> updateCategory(int id, WooCategory data) {
     return instance
         .basePut('products/categories/$id', data.toJson())
-        .then((value) => WooProductCategory.fromJson(value));
+        .then((value) => WooCategory.fromJson(value));
   }
 
-  Future<WooProductCategory> deleteProductById(int id) {
+  Future<WooCategory> deleteCategoryById(int id) {
     return instance
         .baseDelete('products/categories/${id}')
-        .then((value) => WooProductCategory.fromJson(value));
+        .then((value) => WooCategory.fromJson(value));
   }
 }

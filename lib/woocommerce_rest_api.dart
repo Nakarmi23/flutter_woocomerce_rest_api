@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
 import 'package:woocommerce_rest_api/src/models/woo_product.dart';
 import 'package:woocommerce_rest_api/src/param_models/woo_product_param.dart';
+import 'package:woocommerce_rest_api/src/models/woo_category.dart';
 import 'package:woocommerce_rest_api/src/param_models/woo_category_param.dart';
 
 import 'src/utility/queryString.dart';
