@@ -8,21 +8,29 @@ import 'dart:math';
 import 'package:crypto/crypto.dart' as crypto;
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
+
 import 'package:woocommerce_rest_api/src/models/woo_product.dart';
-import 'package:woocommerce_rest_api/src/param_models/woo_product_param.dart';
 import 'package:woocommerce_rest_api/src/models/woo_category.dart';
+import 'package:woocommerce_rest_api/src/models/woo_review.dart';
+
+import 'package:woocommerce_rest_api/src/param_models/woo_product_param.dart';
 import 'package:woocommerce_rest_api/src/param_models/woo_category_param.dart';
+import 'package:woocommerce_rest_api/src/param_models/woo_review_param.dart';
 
 import 'src/utility/queryString.dart';
 import 'src/models/woocommerce_rest_api_error.dart';
 
 export 'package:woocommerce_rest_api/src/models/woo_category.dart';
 export 'package:woocommerce_rest_api/src/models/woo_product.dart';
+export 'package:woocommerce_rest_api/src/models/woo_review.dart';
+
 export 'package:woocommerce_rest_api/src/param_models/woo_product_param.dart';
 export 'package:woocommerce_rest_api/src/param_models/woo_category_param.dart';
+export 'package:woocommerce_rest_api/src/param_models/woo_review_param.dart';
 
 part 'src/product.dart';
 part 'src/category.dart';
+part 'src/review.dart';
 
 class WooCommerceRestAPI {
   String url;
@@ -37,6 +45,10 @@ class WooCommerceRestAPI {
 
   _WooCategoryRepo get category {
     return _WooCategoryRepo(this);
+  }
+
+  _WooReviewRepo get review {
+    return _WooReviewRepo(this);
   }
 
   WooCommerceRestAPI(
