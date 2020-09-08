@@ -28,7 +28,7 @@ WooCustomer _$WooCustomerFromJson(Map<String, dynamic> json) {
     username: json['username'] as String,
     password: json['password'] as String,
     isPayingCustomer: json['is_paying_customer'] as bool,
-    avatarURL: json['avatar_url'] as bool,
+    avatarURL: json['avatar_url'] as String,
     metaData: (json['meta_data'] as List)
         ?.map((e) => e == null
             ? null

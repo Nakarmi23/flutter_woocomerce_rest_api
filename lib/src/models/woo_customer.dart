@@ -27,7 +27,7 @@ class WooCustomer {
   @JsonKey(name: 'is_paying_customer')
   bool isPayingCustomer;
   @JsonKey(name: 'avatar_url')
-  bool avatarURL;
+  String avatarURL;
   @JsonKey(name: 'meta_data')
   List<WooCustomerMetaData> metaData;
 
