@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'woo_product.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class WooProduct {
   int id;
   String name;
@@ -176,6 +176,7 @@ class WooProduct {
 
   factory WooProduct.fromJson(Map<String, dynamic> json) =>
       _$WooProductFromJson(json);
+
   Map<String, dynamic> toJson() => _$WooProductToJson(this);
 
   WooProduct copyWith({
@@ -340,7 +341,6 @@ class WooProduct {
         o.taxClass == taxClass &&
         o.manageStock == manageStock &&
         o.stockQuantity == stockQuantity &&
-        o.stockStatus == stockStatus &&
         o.backOrders == backOrders &&
         o.backOrdersAllowed == backOrdersAllowed &&
         o.backOrdered == backOrdered &&
@@ -403,7 +403,6 @@ class WooProduct {
         taxClass.hashCode ^
         manageStock.hashCode ^
         stockQuantity.hashCode ^
-        stockStatus.hashCode ^
         backOrders.hashCode ^
         backOrdersAllowed.hashCode ^
         backOrdered.hashCode ^

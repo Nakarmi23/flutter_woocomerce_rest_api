@@ -30,7 +30,7 @@ Map<String, dynamic> _$WooCategoryToJson(WooCategory instance) =>
       'parent': instance.parent,
       'description': instance.description,
       'display': instance.display,
-      'image': instance.image,
+      'image': instance.image?.toJson(),
       'menu_order': instance.menuOrder,
       'count': instance.count,
     };

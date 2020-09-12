@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'woo_review.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class WooReview {
   int id;
   @JsonKey(name: 'date_created')

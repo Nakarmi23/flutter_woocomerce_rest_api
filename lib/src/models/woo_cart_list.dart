@@ -5,7 +5,7 @@ import 'package:woocommerce_rest_api/src/models/woo_product.dart';
 
 part 'woo_cart_list.g.dart';
 
-@JsonSerializable(includeIfNull: false)
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class WooCartItem {
   WooProduct product;
   int quantity;

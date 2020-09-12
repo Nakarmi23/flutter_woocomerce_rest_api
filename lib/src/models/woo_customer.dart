@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'woo_customer.g.dart';
 
-@JsonSerializable(includeIfNull: false)
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class WooCustomer {
   int id;
   @JsonKey(name: 'date_created')

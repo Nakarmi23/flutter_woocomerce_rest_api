@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'woocommerce_rest_api_error.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class WooCommerceRestApiError {
   String code;
   String message;

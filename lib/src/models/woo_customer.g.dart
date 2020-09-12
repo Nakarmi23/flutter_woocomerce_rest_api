@@ -65,11 +65,12 @@ Map<String, dynamic> _$WooCustomerToJson(WooCustomer instance) {
   writeNotNull('role', instance.role);
   writeNotNull('username', instance.username);
   writeNotNull('password', instance.password);
-  writeNotNull('billing', instance.billing);
-  writeNotNull('shipping', instance.shipping);
+  writeNotNull('billing', instance.billing?.toJson());
+  writeNotNull('shipping', instance.shipping?.toJson());
   writeNotNull('is_paying_customer', instance.isPayingCustomer);
   writeNotNull('avatar_url', instance.avatarURL);
-  writeNotNull('meta_data', instance.metaData);
+  writeNotNull(
+      'meta_data', instance.metaData?.map((e) => e?.toJson())?.toList());
   return val;
 }
 

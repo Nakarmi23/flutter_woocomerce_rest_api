@@ -24,7 +24,7 @@ Map<String, dynamic> _$WooCartItemToJson(WooCartItem instance) {
     }
   }
 
-  writeNotNull('product', instance.product);
+  writeNotNull('product', instance.product?.toJson());
   writeNotNull('quantity', instance.quantity);
   return val;
 }

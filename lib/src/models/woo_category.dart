@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'woo_category.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class WooCategory {
   int id;
   String name;
