@@ -30,7 +30,6 @@ class WooCustomer {
   String avatarURL;
   @JsonKey(name: 'meta_data')
   List<WooCustomerMetaData> metaData;
-
   WooCustomer({
     this.id,
     this.dateCreated,
@@ -46,6 +45,8 @@ class WooCustomer {
     this.isPayingCustomer,
     this.avatarURL,
     this.metaData,
+    this.billing,
+    this.shipping,
   });
 
   factory WooCustomer.fromJson(Map<String, dynamic> json) =>
@@ -66,8 +67,10 @@ class WooCustomer {
     String username,
     String password,
     bool isPayingCustomer,
-    bool avatarURL,
+    String avatarURL,
     List<WooCustomerMetaData> metaData,
+    WooCustomerBilling billing,
+    WooCustomerShipping shipping,
   }) {
     return WooCustomer(
       id: id ?? this.id,
@@ -84,6 +87,8 @@ class WooCustomer {
       isPayingCustomer: isPayingCustomer ?? this.isPayingCustomer,
       avatarURL: avatarURL ?? this.avatarURL,
       metaData: metaData ?? this.metaData,
+      billing: billing ?? this.billing,
+      shipping: shipping ?? this.shipping,
     );
   }
 

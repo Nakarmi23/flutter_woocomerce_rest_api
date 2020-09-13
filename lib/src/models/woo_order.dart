@@ -25,6 +25,8 @@ class WooOrder {
   String discountTotal;
   @JsonKey(name: 'discount_tax')
   String discountTax;
+  @JsonKey(name: 'shipping_total')
+  String shippingTotal;
   @JsonKey(name: 'shipping_tax')
   String shippingTax;
   @JsonKey(name: 'cart_tax')
@@ -110,6 +112,9 @@ class WooOrder {
     this.couponLines,
     this.refunds,
     this.setPaid,
+    this.billing,
+    this.shipping,
+    this.shippingTotal,
   });
   factory WooOrder.fromJson(Map<String, dynamic> json) =>
       _$WooOrderFromJson(json);
@@ -226,7 +231,7 @@ class WooOrderLineItem {
   @JsonKey(name: 'meta_data')
   List<WooOrderMetaData> metaData;
   String sku;
-  String price;
+  int price;
   WooOrderLineItem({
     this.id,
     this.name,

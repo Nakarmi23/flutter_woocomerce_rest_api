@@ -86,13 +86,13 @@ WooOrder _$WooOrderFromJson(Map<String, dynamic> json) {
             : WooOrderRefund.fromJson(e as Map<String, dynamic>))
         ?.toList(),
     setPaid: json['set_paid'] as bool,
-  )
-    ..billing = json['billing'] == null
+    billing: json['billing'] == null
         ? null
-        : WooOrderBilling.fromJson(json['billing'] as Map<String, dynamic>)
-    ..shipping = json['shipping'] == null
+        : WooOrderBilling.fromJson(json['billing'] as Map<String, dynamic>),
+    shipping: json['shipping'] == null
         ? null
-        : WooOrderShipping.fromJson(json['shipping'] as Map<String, dynamic>);
+        : WooOrderShipping.fromJson(json['shipping'] as Map<String, dynamic>),
+  )..shippingTotal = json['shipping_total'] as String;
 }
 
 Map<String, dynamic> _$WooOrderToJson(WooOrder instance) {
@@ -117,6 +117,7 @@ Map<String, dynamic> _$WooOrderToJson(WooOrder instance) {
       'date_modified_gmt', instance.dateModifiedGMT?.toIso8601String());
   writeNotNull('discount_total', instance.discountTotal);
   writeNotNull('discount_tax', instance.discountTax);
+  writeNotNull('shipping_total', instance.shippingTotal);
   writeNotNull('shipping_tax', instance.shippingTax);
   writeNotNull('cart_tax', instance.cartTax);
   writeNotNull('total', instance.total);
@@ -272,7 +273,7 @@ WooOrderLineItem _$WooOrderLineItemFromJson(Map<String, dynamic> json) {
             : WooOrderMetaData.fromJson(e as Map<String, dynamic>))
         ?.toList(),
     sku: json['sku'] as String,
-    price: json['price'] as String,
+    price: json['price'] as int,
   );
 }
 
