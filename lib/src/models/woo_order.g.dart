@@ -92,7 +92,8 @@ WooOrder _$WooOrderFromJson(Map<String, dynamic> json) {
     shipping: json['shipping'] == null
         ? null
         : WooOrderShipping.fromJson(json['shipping'] as Map<String, dynamic>),
-  )..shippingTotal = json['shipping_total'] as String;
+    shippingTotal: json['shipping_total'] as String,
+  );
 }
 
 Map<String, dynamic> _$WooOrderToJson(WooOrder instance) {

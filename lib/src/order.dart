@@ -5,13 +5,13 @@ class _WooOrderRepo {
 
   _WooOrderRepo(this.instance);
 
-  Future<WooOrder> getCustomerById(int id) {
+  Future<WooOrder> getOrderById(int id) {
     return instance
         .baseGet('orders/${id}')
         .then((value) => WooOrder.fromJson(value));
   }
 
-  Future<List<WooOrder>> getCustomers({WooOrderParam params}) async {
+  Future<List<WooOrder>> getOrders({WooOrderParam params}) async {
     return await instance
         .baseGet('orders', params: params != null ? params.toJson() : {})
         .then((value) => (value as List)
@@ -19,19 +19,19 @@ class _WooOrderRepo {
             .toList());
   }
 
-  Future<WooOrder> createCustomer(WooOrder data) {
+  Future<WooOrder> createOrder(WooOrder data) {
     return instance
         .basePost('orders', data.toJson())
         .then((value) => WooOrder.fromJson(value));
   }
 
-  Future<WooOrder> updateCustomer(int id, WooOrder data) {
+  Future<WooOrder> updateOrder(int id, WooOrder data) {
     return instance
         .basePut('orders/$id', data.toJson())
         .then((value) => WooOrder.fromJson(value));
   }
 
-  Future<WooOrder> deleteCustomerById(int id) {
+  Future<WooOrder> deleteOrderById(int id) {
     return instance
         .baseDelete('orders/${id}')
         .then((value) => WooOrder.fromJson(value));
