@@ -20,9 +20,14 @@ class _WooCustomerRepo {
   }
 
   Future<WooCustomer> createCustomer(WooCustomer data) {
-    return instance
-        .basePost('customers', data.toJson())
-        .then((value) => WooCustomer.fromJson(value));
+    return instance.basePost('customers', data.toJson()).then((value) {
+      if ((value as Map<String, dynamic>).containsKey('code') &&
+          value['code'] == 'registration-error-username-exists') {
+        throw value;
+      } else {
+        return WooCustomer.fromJson(value);
+      }
+    });
   }
 
   Future<WooCustomer> updateCustomer(int id, WooCustomer data) {
