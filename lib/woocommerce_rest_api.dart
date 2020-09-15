@@ -16,12 +16,15 @@ import 'package:woocommerce_rest_api/src/models/woo_review.dart';
 import 'package:woocommerce_rest_api/src/models/woo_customer.dart';
 import 'package:woocommerce_rest_api/src/models/woo_cart_list.dart';
 import 'package:woocommerce_rest_api/src/models/woo_order.dart';
+import 'package:woocommerce_rest_api/src/models/ti_wishlist.dart';
+import 'package:woocommerce_rest_api/src/models/ti_wishlist_product.dart';
 
 import 'package:woocommerce_rest_api/src/param_models/woo_product_param.dart';
 import 'package:woocommerce_rest_api/src/param_models/woo_category_param.dart';
 import 'package:woocommerce_rest_api/src/param_models/woo_review_param.dart';
 import 'package:woocommerce_rest_api/src/param_models/woo_customer_param.dart';
 import 'package:woocommerce_rest_api/src/param_models/woo_order_param.dart';
+import 'package:woocommerce_rest_api/src/param_models/ti_wishlist_product_param.dart';
 
 import 'src/utility/queryString.dart';
 import 'src/models/woocommerce_rest_api_error.dart';
@@ -32,12 +35,15 @@ export 'package:woocommerce_rest_api/src/models/woo_review.dart';
 export 'package:woocommerce_rest_api/src/models/woo_customer.dart';
 export 'package:woocommerce_rest_api/src/models/woo_cart_list.dart';
 export 'package:woocommerce_rest_api/src/models/woo_order.dart';
+export 'package:woocommerce_rest_api/src/models/ti_wishlist.dart';
+export 'package:woocommerce_rest_api/src/models/ti_wishlist_product.dart';
 
 export 'package:woocommerce_rest_api/src/param_models/woo_product_param.dart';
 export 'package:woocommerce_rest_api/src/param_models/woo_category_param.dart';
 export 'package:woocommerce_rest_api/src/param_models/woo_review_param.dart';
 export 'package:woocommerce_rest_api/src/param_models/woo_customer_param.dart';
 export 'package:woocommerce_rest_api/src/param_models/woo_order_param.dart';
+export 'package:woocommerce_rest_api/src/param_models/ti_wishlist_product_param.dart';
 
 part 'src/product.dart';
 part 'src/category.dart';
@@ -45,6 +51,8 @@ part 'src/review.dart';
 part 'src/customer.dart';
 part 'src/cart.dart';
 part 'src/order.dart';
+part 'src/wishlist.dart';
+part 'src/wishlist_product.dart';
 
 class WooCommerceRestAPI {
   String url;
@@ -75,6 +83,14 @@ class WooCommerceRestAPI {
 
   _WooOrderRepo get order {
     return _WooOrderRepo(this);
+  }
+
+  _TPWishlist get wishList {
+    return _TPWishlist(this);
+  }
+
+  _TPWishlistProduct get wishListProduct {
+    return _TPWishlistProduct(this);
   }
 
   WooCommerceRestAPI(
