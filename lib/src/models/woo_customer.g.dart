@@ -34,14 +34,14 @@ WooCustomer _$WooCustomerFromJson(Map<String, dynamic> json) {
             ? null
             : WooCustomerMetaData.fromJson(e as Map<String, dynamic>))
         ?.toList(),
-  )
-    ..billing = json['billing'] == null
+    billing: json['billing'] == null
         ? null
-        : WooCustomerBilling.fromJson(json['billing'] as Map<String, dynamic>)
-    ..shipping = json['shipping'] == null
+        : WooCustomerBilling.fromJson(json['billing'] as Map<String, dynamic>),
+    shipping: json['shipping'] == null
         ? null
         : WooCustomerShipping.fromJson(
-            json['shipping'] as Map<String, dynamic>);
+            json['shipping'] as Map<String, dynamic>),
+  );
 }
 
 Map<String, dynamic> _$WooCustomerToJson(WooCustomer instance) {
