@@ -23,7 +23,7 @@ WooReviewParam _$WooReviewParamFromJson(Map<String, dynamic> json) {
         (json['reviewer_exclude'] as List)?.map((e) => e as int)?.toList(),
     reviewerEmail:
         (json['reviewer_email'] as List)?.map((e) => e as int)?.toList(),
-    product: (json['product'] as List)?.map((e) => e as int)?.toList(),
+    product: json['product'] as int,
     orderBy:
         _$enumDecodeNullable(_$WooReviewParamOrderByEnumMap, json['order_by']),
     status: _$enumDecodeNullable(_$WooReviewParamStatusEnumMap, json['status']),

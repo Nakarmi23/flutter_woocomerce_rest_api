@@ -322,7 +322,7 @@ class WooCustomerShipping {
 class WooCustomerMetaData {
   int id;
   String key;
-  String value;
+  dynamic value;
 
   WooCustomerMetaData({
     this.id,

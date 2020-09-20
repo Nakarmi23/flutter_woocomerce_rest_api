@@ -36,7 +36,7 @@ class WooReviewParam implements WooBaseParam<WooReviewParamOrderBy> {
   @JsonKey(name: 'reviewer_email')
   List<int> reviewerEmail;
   WooReviewParamStatus status;
-  List<int> product;
+  int product;
   WooReviewParam({
     this.after,
     this.before,

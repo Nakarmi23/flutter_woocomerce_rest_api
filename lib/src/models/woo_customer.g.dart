@@ -152,7 +152,7 @@ WooCustomerMetaData _$WooCustomerMetaDataFromJson(Map<String, dynamic> json) {
   return WooCustomerMetaData(
     id: json['id'] as int,
     key: json['key'] as String,
-    value: json['value'] as String,
+    value: json['value'],
   );
 }
 

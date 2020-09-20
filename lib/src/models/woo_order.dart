@@ -198,7 +198,7 @@ class WooOrderShipping {
 class WooOrderMetaData {
   int id;
   String key;
-  String value;
+  dynamic value;
   WooOrderMetaData({
     this.id,
     this.key,

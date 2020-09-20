@@ -21,7 +21,8 @@ WooReview _$WooReviewFromJson(Map<String, dynamic> json) {
     review: json['review'] as String,
     rating: json['rating'] as int,
     verified: json['verified'] as bool,
-  )..status = _$enumDecodeNullable(_$WooReviewStatusEnumMap, json['status']);
+    status: _$enumDecodeNullable(_$WooReviewStatusEnumMap, json['status']),
+  );
 }
 
 Map<String, dynamic> _$WooReviewToJson(WooReview instance) => <String, dynamic>{

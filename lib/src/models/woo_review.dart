@@ -28,6 +28,7 @@ class WooReview {
     this.review,
     this.rating,
     this.verified,
+    this.status,
   });
 
   WooReview copyWith({
