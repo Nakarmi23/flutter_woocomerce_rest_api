@@ -35,7 +35,7 @@ class WooProductParam implements WooBaseParam<WooProductParamOrderBy> {
   @JsonKey(name: 'parent_exclude')
   List<int> parentExclude;
   String slug;
-  WooProductStockStatus status;
+  WooProductStatusType status;
   WooProductType type;
   String sku;
   bool featured;

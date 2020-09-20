@@ -22,8 +22,7 @@ WooProductParam _$WooProductParamFromJson(Map<String, dynamic> json) {
     parentExclude:
         (json['parent_exclude'] as List)?.map((e) => e as int)?.toList(),
     slug: json['slug'] as String,
-    status:
-        _$enumDecodeNullable(_$WooProductStockStatusEnumMap, json['status']),
+    status: _$enumDecodeNullable(_$WooProductStatusTypeEnumMap, json['status']),
     type: _$enumDecodeNullable(_$WooProductTypeEnumMap, json['type']),
     sku: json['sku'] as String,
     featured: json['featured'] as bool,
@@ -66,7 +65,7 @@ Map<String, dynamic> _$WooProductParamToJson(WooProductParam instance) {
   writeNotNull('parent', instance.parent);
   writeNotNull('parent_exclude', instance.parentExclude);
   writeNotNull('slug', instance.slug);
-  writeNotNull('status', _$WooProductStockStatusEnumMap[instance.status]);
+  writeNotNull('status', _$WooProductStatusTypeEnumMap[instance.status]);
   writeNotNull('type', _$WooProductTypeEnumMap[instance.type]);
   writeNotNull('sku', instance.sku);
   writeNotNull('featured', instance.featured);
@@ -121,10 +120,11 @@ const _$WooParamOrderEnumMap = {
   WooParamOrder.desc: 'desc',
 };
 
-const _$WooProductStockStatusEnumMap = {
-  WooProductStockStatus.instock: 'instock',
-  WooProductStockStatus.outofstock: 'outofstock',
-  WooProductStockStatus.onbackorder: 'onbackorder',
+const _$WooProductStatusTypeEnumMap = {
+  WooProductStatusType.draft: 'draft',
+  WooProductStatusType.pending: 'pending',
+  WooProductStatusType.private: 'private',
+  WooProductStatusType.publish: 'publish',
 };
 
 const _$WooProductTypeEnumMap = {
@@ -132,6 +132,12 @@ const _$WooProductTypeEnumMap = {
   WooProductType.grouped: 'grouped',
   WooProductType.external: 'external',
   WooProductType.variable: 'variable',
+};
+
+const _$WooProductStockStatusEnumMap = {
+  WooProductStockStatus.instock: 'instock',
+  WooProductStockStatus.outofstock: 'outofstock',
+  WooProductStockStatus.onbackorder: 'onbackorder',
 };
 
 const _$WooProductParamOrderByEnumMap = {
